@@ -1,0 +1,116 @@
+<div class="tophalf">  
+    <button (click)="setScreen(1)">Search by name/id</button>
+    <button (click)="setScreen(2); showList(5,10)">List all characters</button>
+            <!--<input type="radio" name="options" ng-model="selected_option" value="option1"> Search by name<br>
+            <input type="radio" name="options" ng-model="selected_option" value="option2"> List all characters<br>-->
+  <div class="parameters" *ngIf="[_screenNr]==2">
+        <button (click)="showList(pageValue.value,numberOfRows.value)">Set parameters</button>
+        <input  #pageValue placeholder="Page">
+        <input  #numberOfRows placeholder="Number of rows (max 50)">
+    </div>
+
+    <div class="specificsearch" *ngIf="[_screenNr]==1">
+        <button (click)="searchName(nameValue.value)" onclick="nameValue.value ==''">Search by name</button>
+        <input placeholder="e.g: jon snow" #nameValue>
+        <button (click)="searchById(idValue.value)">Search by id</button>
+        <input placeholder="e.g: 300" #idValue>
+        <div class="card card-cascade narrower mt-5">
+
+                <!--Card image-->
+                <div class="view gradient-card-header purple-gradient narrower py-4 mx-4 mb-3 d-flex justify-content-center align-items-center">
+            
+                    <h4 class="black-text font-weight-bold text-uppercase mb-0">Character</h4>
+            
+                </div>
+                <!--/Card image-->
+            
+                <div class="px-4">
+            
+                    <!--Table-->
+                    <table class="table table-hover table-responsive-md mb-0">
+            
+                        <!--Table head-->
+                        <thead>
+                                <tr>
+                                    <th class="th-lg">Name</th>
+                                    <th class="th-lg">Titles</th>
+                                    <th class="th-lg">Allegiance</th>
+                                </tr>
+                            </thead>
+                        <!--Table head-->
+            
+                        <!--Table body-->
+                        <tbody>
+                                <tr>
+                                    <ng-container *ngIf="idValue.value">
+                                        <td>{{_character.name}}</td>
+                                        <td>{{_character.titles}}</td>
+                                        <td>{{_character.allegiances}}</td>
+                                    </ng-container>
+                                    <ng-container *ngIf="nameValue.value">
+                                        <ng-container *ngFor="let item of _character">
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.titles}}</td>
+                                            <td>{{item.allegiances}}</td>
+                                            </ng-container>
+                                        </ng-container>
+                                  </tr>
+                            </tbody>
+                        <!--Table body-->
+                    </table>
+            
+                </div>
+            
+                <hr class="my-0">
+            </div> 
+    </div>
+</div>
+<div class="card card-cascade narrower mt-5" *ngIf="[_screenNr]==2">
+
+    <!--Card image-->
+    <div class="view gradient-card-header purple-gradient narrower py-4 mx-4 mb-3 d-flex justify-content-center align-items-center">
+
+        <h4 class="black-text font-weight-bold text-uppercase mb-0">Game of Thrones character list</h4>
+
+    </div>
+    <!--/Card image-->
+
+    <div class="px-4">
+
+        <!--Table-->
+        <table class="table table-hover table-responsive-md mb-0">
+
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th scope="row">#</th>
+                    <th class="th-lg">Name</th>
+                    <th class="th-lg">Aliases</th>
+                    <th class="th-lg">Allegiance</th>
+                </tr>
+            </thead>
+            <!--Table head-->
+
+            <!--Table body-->
+            <tbody>
+                <tr *ngFor="let character of _character">
+                    <ng-container *ngIf="character.name!=''">
+                      <th scope="row"></th>
+                      <td>{{character.name}}</td>
+                      <td>{{character.aliases}}</td>
+                      <td>{{character.allegiances}}</td>
+                    </ng-container>
+                  </tr>
+            </tbody>
+            <!--Table body-->
+        </table>
+
+    </div>
+
+    <hr class="my-0">
+    <div class="pageButtons" style="text-align: center">
+        <button (click)="pageNr('prev')">Prev</button>
+        <button (click)="pageNr('next')">Next</button>       
+    </div>
+</div> 
+
