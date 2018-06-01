@@ -8,7 +8,7 @@ namespace Model
         public int Id {get; set;}
         public string FirstName{get;set;}
         public string LastName { get; set; }
-        
+        [JsonIgnore]
         public Address Addresses{get;set;}
     }
     

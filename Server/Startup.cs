@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Model;
 namespace aspcore
 {
@@ -32,6 +33,14 @@ namespace aspcore
             
             services.AddMvc();
             services.AddCors();
+            services.AddAuthentication(options =>{
+                options.DefaultAuthenticateScheme= JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme= JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Authority = "https://abx34.eu.auth0.com/";
+                options.Audience = "http://localhost:5000/api/v1";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,8 +50,17 @@ namespace aspcore
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseMvc();
+            else{
+                app.UseExceptionHandler("Home/error");
+            }
+            app.UseStaticFiles();
+            app.UseAuthentication();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name:"default",
+                    template:"{controller=Home}/{action=Index}/{id?}");
+            });
             DBInitializer.Initialize(postContext);
         }
     }

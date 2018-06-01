@@ -11,7 +11,7 @@ export class AuthService{
     domain: 'abx34.eu.auth0.com',
     responseType: 'token id_token',
     audience: 'https://abx34.eu.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200',
+    redirectUri: 'http://localhost:4200/home',
     scope: 'openid'
     });
 
@@ -27,6 +27,8 @@ export class AuthService{
                 window.location.hash= '';
                 this.setSession(authResult);
                 this.router.navigate(['/home']);
+                console.log(authResult);
+                
             }
             else if (err){
                 this.router.navigate(['/home']);

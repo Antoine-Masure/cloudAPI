@@ -26,8 +26,8 @@
                 </li>
     
             </ul>
-            <button class="btn btn-primary btn-margin" *ngIf="auth.isAuthenticated()" (click)="auth.login()">Log In</button>
-            <button class="btn btn-primary btn-margin" *ngIf="auth.isAuthenticated()"(click)="auth.logout()">Log Out</button>
+            <button class="btn btn-primary btn-margin" *ngIf="_auth.isAuthenticated()" (click)="_auth.login()">Log In</button>
+            <button class="btn btn-primary btn-margin" *ngIf="_auth.isAuthenticated()"(click)="_auth.logout()">Log Out</button>
             <!-- Links -->
         </div>
         <!-- Collapsible content -->

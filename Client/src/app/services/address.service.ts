@@ -7,10 +7,11 @@ import {Response, Http, Headers, RequestOptions} from '@angular/http'
 @Injectable()
 
 export class AddressService{
-    public headers: HttpHeaders;
+    
     httpOptions ={
         headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
+
     constructor(private _http: HttpClient){
         
     }
@@ -18,12 +19,13 @@ export class AddressService{
 
         return this._http.get<IAddresses[]>(`http://localhost:5000/api/v1/addresses`);      
     }
-    postAddress(address: IAddresses){
-        this.headers = new HttpHeaders();
-        this.headers.set ('Content-Type', 'application/json');
+    postAddress(address: Object):Observable<IAddresses>{
+        //this.headers = new HttpHeaders();
+        //this.headers.set ('Content-Type', 'application/json');
         //let options = new RequestOptions({headers:headers})
-        let postBody = JSON.stringify(address);
-        return this._http.post(`http://localhost:5000/api/v1/addresses`,address, this.httpOptions);
+        //let postBody = JSON.stringify(address);
+        
+        return this._http.post<IAddresses>(`http://localhost:5000/api/v1/addresses/`,address, this.httpOptions);
     }
 }
 export interface IAddresses {

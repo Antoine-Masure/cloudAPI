@@ -21,10 +21,11 @@ export class PostComponent implements OnInit {
   constructor(private service: AddressService) { }
 
   ngOnInit() {
+    this.service.postAddress(this._address).subscribe(address => this._address=address);
     this.service.getResources().subscribe(result => this._addresses=result)
   }
-  postRecord(){
-    this.service.postAddress(this._address).subscribe(address => {this._addresses.push(this._address)});
+  postAddress(){
+    
   }
 
 }

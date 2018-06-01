@@ -14,7 +14,7 @@ namespace Model
         public int Number{get; set;}
         public string Country {get;set;}
        // public int PersonsId{get;set;}
-        public Person Person {get;set;}
+        public Person Persons {get;set;}
 
     }
     

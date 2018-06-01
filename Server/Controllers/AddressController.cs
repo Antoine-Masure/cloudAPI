@@ -43,7 +43,7 @@ public class AddressController: Controller{
     [Route("{id}")]
     [HttpGet]
     public IActionResult GetAddress(int id){
-        var address = context.Addresses.Include(d => d.Person).SingleOrDefault(d => d.Id == id);
+        var address = context.Addresses.Include(d => d.Persons).SingleOrDefault(d => d.Id == id);
         if(address==null){
             return NotFound();
         }
