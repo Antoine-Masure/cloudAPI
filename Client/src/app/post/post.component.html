@@ -1,0 +1,42 @@
+<div class="card card-cascade narrower mt-5">
+    <button (click)="postRecord()">post</button>
+  <!--Card image-->
+  <div class="view gradient-card-header purple-gradient narrower py-4 mx-4 mb-3 d-flex justify-content-center align-items-center">
+
+      <h4 class="black-text font-weight-bold text-uppercase mb-0">Addresses</h4>
+
+  </div>
+  <!--/Card image-->
+
+  <div class="px-4">
+
+      <!--Table-->
+      <table class="table table-hover table-responsive-md mb-0">
+
+          <!--Table head-->
+          <thead>
+              <tr>
+                  <th scope="row">#</th>
+                  <th class="th-lg">City</th>
+                  <th class="th-lg">Street</th>
+                  <th class="th-lg">Country</th>
+              </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+              <tr *ngFor="let address of _addresses">
+                  <ng-container>
+                    <th scope="row"></th>
+                    <td>{{address.city}}</td>
+                    <td>{{address.street}}</td>
+                    <td>{{address.country}}</td>
+                  </ng-container>
+                </tr>
+          </tbody>
+          <!--Table body-->
+      </table>
+
+  </div>
+</div>

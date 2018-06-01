@@ -12,6 +12,10 @@ import { NavBarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { HousesService } from './services/houses.service';
 import { BookService } from './services/books.service';
+import { PostComponent } from './post/post.component';
+import { AddressService } from './services/address.service';
+import { AuthService } from './services/auth.service';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { BookService } from './services/books.service';
     NavBarComponent,
     HomeComponent,
     BooksComponent,
-    HousesComponent
+    HousesComponent,
+    PostComponent,
+    CallbackComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +39,7 @@ import { BookService } from './services/books.service';
       {path:'characters', component:CharactersComponent},
       {path:'houses', component:HousesComponent},
       {path:'books', component:BooksComponent},
+      {path:'addresses', component:PostComponent},
       {path: '**', component:HomeComponent}
     ], {useHash:true}),
   ],
@@ -40,7 +47,9 @@ import { BookService } from './services/books.service';
   providers: [
     CharacterService,
     HousesService,
-    BookService
+    BookService,
+    AddressService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

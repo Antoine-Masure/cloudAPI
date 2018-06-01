@@ -8,7 +8,7 @@ import {IHouses, HousesService} from '../services/houses.service'
 
 export class HousesComponent implements OnInit {
 
-  _houses: IHouses[];
+  _houses: IHouses[]=[];
   _pageNr: string = "3";
   _rows: string = "10";
   _name: string = "";

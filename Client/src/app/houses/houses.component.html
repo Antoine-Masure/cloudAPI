@@ -11,7 +11,7 @@
 
     <div class="specificsearch" *ngIf="[_screenNr]==1">
         <button (click)="searchName(nameValue.value)">Search by house name</button>
-        <input placeholder="e.g: jon snow" #nameValue>
+        <input placeholder="e.g: house algood" #nameValue>
         <button (click)="searchById(idValue.value)">Search by house id</button>
         <input placeholder="e.g: 300" #idValue>
         <div class="card card-cascade narrower mt-5">
@@ -84,12 +84,12 @@
 
             <!--Table body-->
             <tbody>
-                <tr *ngFor="let house of _houses">
-                    <ng-container *ngIf="house.name!=''">
+                <tr *ngFor="let item of _houses">
+                    <ng-container *ngIf="item.name!=''">
                       <th scope="row"></th>
-                      <td>{{house.name}}</td>
-                      <td>{{house.region}}</td>
-                      <td>{{house.words}}</td>
+                      <td>{{item.name}}</td>
+                      <td>{{item.region}}</td>
+                      <td>{{item.words}}</td>
                     </ng-container>
                   </tr>
             </tbody>

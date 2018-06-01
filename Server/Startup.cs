@@ -43,7 +43,6 @@ namespace aspcore
             }
 
             app.UseMvc();
-            
             DBInitializer.Initialize(postContext);
         }
     }

@@ -9,7 +9,7 @@ export class BookService{
     constructor(private _http: HttpClient){}
     getResources(page: string, rows: string): Observable<IBooks[]>{
 
-            return this._http.get<IBooks[]>(`https:/ /www.anapioficeandfire.com/api/books?page=${page}&pagesize=${rows}`);
+            return this._http.get<IBooks[]>(`https://www.anapioficeandfire.com/api/books?page=${page}&pagesize=${rows}`);
     }
     getName(name:string): Observable<IBooks[]>{
         this._stringName = name.replace(" ","+");

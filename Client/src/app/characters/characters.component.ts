@@ -8,7 +8,7 @@ import { variable } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./characters.component.css']
 })
 export class CharactersComponent implements OnInit {
-  _character: ICharacters[];
+  _character: ICharacters[]=[];
   _resource:string = "characters";
   _pageNr: string = "3";
   _rows: string = "10";
