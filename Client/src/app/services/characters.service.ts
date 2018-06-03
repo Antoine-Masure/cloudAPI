@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 export class CharacterService{
     _stringName: string = "";
     constructor(private _http: HttpClient){}
-    getResources(page: string, rows: string): Observable<ICharacters[]>{
+    getCharacters(page: string, rows: string): Observable<ICharacters[]>{
 
             return this._http.get<ICharacters[]>(`https://www.anapioficeandfire.com/api/characters?page=${page}&pagesize=${rows}`);
     }

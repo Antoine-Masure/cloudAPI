@@ -7,7 +7,6 @@ namespace Model
         public static void Initialize(PostContext context)
         {
             context.Database.EnsureCreated();
-            //List<Address> addresses;
             if(!context.Persons.Any())
             {  
                 var person1 = new Person{

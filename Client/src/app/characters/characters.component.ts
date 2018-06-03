@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CharacterService, ICharacters} from '../services/characters.service'
 import { ResourceLoader } from '@angular/compiler';
 import { variable } from '@angular/compiler/src/output/output_ast';
+import {HousesService, IHouses} from '../services/houses.service'
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
@@ -15,8 +16,8 @@ export class CharactersComponent implements OnInit {
   _name: string = "";
   _id:string="";
   _screenNr: number = 0;
-
-  constructor(private service: CharacterService) { }
+ // _house: IHouses[];
+  constructor(private service: CharacterService, private _hservice: HousesService) { }
 
   ngOnInit() { 
       
@@ -25,7 +26,7 @@ export class CharactersComponent implements OnInit {
   showList(pageNr: string, rows: string){
     this._pageNr = pageNr;
     this._rows=rows;
-    this.service.getResources(this._pageNr,this._rows).subscribe(result => this._character=result);
+    this.service.getCharacters(this._pageNr,this._rows).subscribe(result => this._character=result);
   }
   searchName(name: string){
     this._name = name;
@@ -40,15 +41,24 @@ export class CharactersComponent implements OnInit {
       var x = parseInt(this._pageNr);
       x-=1;
       this._pageNr = x.toString();
-      this.service.getResources(this._pageNr,this._rows).subscribe(result => this._character=result);
+      this.service.getCharacters(this._pageNr,this._rows).subscribe(result => this._character=result);
     }
     else if(input=='next'){
       var x = parseInt(this._pageNr);
       x+=1;
       this._pageNr = x.toString();
-      this.service.getResources(this._pageNr,this._rows).subscribe(result => this._character=result);
+      this.service.getCharacters(this._pageNr,this._rows).subscribe(result => this._character=result);
     }
   }
+ // showHouses(){   
+  //  var str = this._character[0].allegiances;
+   // str.forEach(element => {
+   //   var temp = element.toString().substr(0, element.lastIndexOf("/")+1);  
+   //  this._hservice.getId(temp).subscribe(result => this._house = result);
+    //  this._character[0].allegiances=this._house;
+   // });
+    
+ //}
   setScreen(screenNr: number){
     this._screenNr=screenNr;
   }

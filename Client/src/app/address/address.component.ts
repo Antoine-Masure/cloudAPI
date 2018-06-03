@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {IAddresses, AddressService} from '../services/address.service';
 import {HttpClient} from '@angular/common/http'
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  selector: 'app-address',
+  templateUrl: './address.component.html',
+  styleUrls: ['./address.component.scss']
 })
 
-export class PostComponent implements OnInit {
+export class AddressComponent implements OnInit {
 
   _addresses: IAddresses[]=[];
   _http: HttpClient;
   _address: IAddresses={
+    
     postalCode:2000,
     city:"Bos",
     country:"Essos",
@@ -21,11 +22,11 @@ export class PostComponent implements OnInit {
   constructor(private service: AddressService) { }
 
   ngOnInit() {
-    this.service.postAddress(this._address).subscribe(address => this._address=address);
-    this.service.getResources().subscribe(result => this._addresses=result)
+    
+    this.service.getAddresses().subscribe(result => this._addresses=result)
   }
   postAddress(){
-    
+    this.service.postAddress(this._address).subscribe(address => this._address=address);
   }
 
 }

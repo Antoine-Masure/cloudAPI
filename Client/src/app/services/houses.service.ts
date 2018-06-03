@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 export class HousesService{
     _stringName: string = "";
     constructor(private _http: HttpClient){}
-    getResources(page: string, rows: string): Observable<IHouses[]>{
+    getHouses(page: string, rows: string): Observable<IHouses[]>{
 
             return this._http.get<IHouses[]>(`https://www.anapioficeandfire.com/api/houses?page=${page}&pagesize=${rows}`);
     }

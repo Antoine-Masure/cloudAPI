@@ -34,18 +34,27 @@
                                 <tr>
                                     <th class="th-lg">Name</th>
                                     <th class="th-lg">Region</th>
-                                    <th class="th-lg">Words</th>
+                                    <th class="th-lg">coatOfArms</th>
                                 </tr>
                             </thead>
                         <!--Table head-->
             
                         <!--Table body-->
                         <tbody>
-                                <tr>
-                                        <td>{{_houses.name}}</td>
-                                        <td>{{_houses.region}}</td>
-                                        <td>{{_houses.words}}</td>
-                                  </tr>
+                            <tr>
+                                <ng-container *ngIf="idValue.value">
+                                    <td>{{_houses.name}}</td>
+                                    <td>{{_houses.region}}</td>
+                                    <td>{{_houses.coatOfArms}}</td>
+                                </ng-container>
+                                <ng-container *ngIf="nameValue.value">
+                                    <ng-container *ngFor="let item of _houses">
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.region}}</td>
+                                        <td>{{item.coatOfArms}}</td>
+                                        </ng-container>
+                                    </ng-container>
+                              </tr>
                             </tbody>
                         <!--Table body-->
                     </table>
@@ -77,7 +86,7 @@
                     <th scope="row">#</th>
                     <th class="th-lg">Name</th>
                     <th class="th-lg">Region</th>
-                    <th class="th-lg">Words</th>
+                    <th class="th-lg">Coat of arms</th>
                 </tr>
             </thead>
             <!--Table head-->
@@ -89,7 +98,7 @@
                       <th scope="row"></th>
                       <td>{{item.name}}</td>
                       <td>{{item.region}}</td>
-                      <td>{{item.words}}</td>
+                      <td>{{item.coatOfArms}}</td>
                     </ng-container>
                   </tr>
             </tbody>

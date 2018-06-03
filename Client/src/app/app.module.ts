@@ -12,10 +12,11 @@ import { NavBarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { HousesService } from './services/houses.service';
 import { BookService } from './services/books.service';
-import { PostComponent } from './post/post.component';
+import { AddressComponent } from './address/address.component';
 import { AddressService } from './services/address.service';
 import { AuthService } from './services/auth.service';
 import { CallbackComponent } from './callback/callback.component';
+import { PeopleComponent } from './people/people.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { CallbackComponent } from './callback/callback.component';
     HomeComponent,
     BooksComponent,
     HousesComponent,
-    PostComponent,
-    CallbackComponent
+    AddressComponent,
+    CallbackComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,7 @@ import { CallbackComponent } from './callback/callback.component';
       {path:'characters', component:CharactersComponent},
       {path:'houses', component:HousesComponent},
       {path:'books', component:BooksComponent},
-      {path:'addresses', component:PostComponent},
+      {path:'addresses', component:AddressComponent},
       {path: '**', component:HomeComponent}
     ], {useHash:true}),
   ],

@@ -23,7 +23,7 @@ export class HousesComponent implements OnInit {
   showList(pageNr: string, rows: string){
     this._pageNr = pageNr;
     this._rows=rows;
-    this.service.getResources(this._pageNr,this._rows).subscribe(result => this._houses=result);
+    this.service.getHouses(this._pageNr,this._rows).subscribe(result => this._houses=result);
   }
   searchName(name: string){
     this._name = name;
@@ -38,13 +38,13 @@ export class HousesComponent implements OnInit {
       var x = parseInt(this._pageNr);
       x-=1;
       this._pageNr = x.toString();
-      this.service.getResources(this._pageNr,this._rows).subscribe(result => this._houses=result);
+      this.service.getHouses(this._pageNr,this._rows).subscribe(result => this._houses=result);
     }
     else if(input=='next'){
       var x = parseInt(this._pageNr);
       x+=1;
       this._pageNr = x.toString();
-      this.service.getResources(this._pageNr,this._rows).subscribe(result => this._houses=result);
+      this.service.getHouses(this._pageNr,this._rows).subscribe(result => this._houses=result);
     }
   }
   setScreen(screenNr: number){

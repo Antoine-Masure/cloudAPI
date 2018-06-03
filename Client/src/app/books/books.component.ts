@@ -21,7 +21,7 @@ export class BooksComponent implements OnInit {
   showList(pageNr: string, rows: string){
     this._pageNr = pageNr;
     this._rows=rows;
-    this.service.getResources(this._pageNr,this._rows).subscribe(result => this._books=result);
+    this.service.getBooks(this._pageNr,this._rows).subscribe(result => this._books=result);
   }
   searchName(name: string){
     this._name = name;
@@ -36,13 +36,13 @@ export class BooksComponent implements OnInit {
       var x = parseInt(this._pageNr);
       x-=1;
       this._pageNr = x.toString();
-      this.service.getResources(this._pageNr,this._rows).subscribe(result => this._books=result);
+      this.service.getBooks(this._pageNr,this._rows).subscribe(result => this._books=result);
     }
     else if(input=='next'){
       var x = parseInt(this._pageNr);
       x+=1;
       this._pageNr = x.toString();
-      this.service.getResources(this._pageNr,this._rows).subscribe(result => this._books=result);
+      this.service.getBooks(this._pageNr,this._rows).subscribe(result => this._books=result);
     }
   }
   setScreen(screenNr: number){
