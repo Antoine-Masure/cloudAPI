@@ -16,8 +16,8 @@
         <!--Table head-->
         <thead>
             <tr>
-                <th class="th-lg">First Name</th>
-                <th class="th-lg">Last Name</th>
+                    <th class="th-lg">First Name</th>
+                    <th class="th-lg">Last Name</th>
             </tr>
         </thead>
         <!--Table head-->
@@ -26,7 +26,6 @@
         <tbody>
             <tr *ngFor="let person of _people">
                 <ng-container>
-                  <th scope="row"></th>
                   <td>{{person.firstName}}</td>
                   <td>{{person.lastName}}</td>
                 </ng-container>

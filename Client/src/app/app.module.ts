@@ -17,6 +17,7 @@ import { AddressService } from './services/address.service';
 import { AuthService } from './services/auth.service';
 import { CallbackComponent } from './callback/callback.component';
 import { PeopleComponent } from './people/people.component';
+import { PeopleService } from './services/people.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PeopleComponent } from './people/people.component';
       {path:'houses', component:HousesComponent},
       {path:'books', component:BooksComponent},
       {path:'addresses', component:AddressComponent},
+      {path:'people', component:PeopleComponent},
       {path: '**', component:HomeComponent}
     ], {useHash:true}),
   ],
@@ -51,7 +53,8 @@ import { PeopleComponent } from './people/people.component';
     HousesService,
     BookService,
     AddressService,
-    AuthService
+    AuthService,
+    PeopleService
   ],
   bootstrap: [AppComponent]
 })

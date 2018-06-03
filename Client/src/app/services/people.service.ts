@@ -13,12 +13,12 @@ export class PeopleService{
     
     getPeople(): Observable<IPeople[]>{
 
-        return this._http.get<IPeople[]>(`http://localhost:5000/api/v1/people`);      
+        return this._http.get<IPeople[]>(`http://localhost:5000/api/v1/person`);      
     }
     postPerson(person: Object):Observable<IPeople>{
         let headers = new HttpHeaders();
         headers.set ('Content-Type', 'application/json; charset=utf-8')
-        return this._http.post<IPeople>(`http://localhost:5000/api/v1/people`,person,{headers:headers});
+        return this._http.post<IPeople>(`http://localhost:5000/api/v1/person`,person,{headers:headers});
     }
     
 }

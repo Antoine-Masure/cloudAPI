@@ -24,6 +24,9 @@
                 <li class="nav-item" [routerLinkActive]="['active']">
                     <a class="nav-link" [routerLink]="['addresses']">addresses</a>
                 </li>
+                <li class="nav-item" [routerLinkActive]="['active']">
+                    <a class="nav-link" [routerLink]="['people']">people</a>
+                </li>
     
             </ul>
             <button class="btn btn-primary btn-margin" *ngIf="_auth.isAuthenticated()" (click)="_auth.login()">Log In</button>
